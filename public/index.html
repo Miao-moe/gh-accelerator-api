@@ -3,124 +3,256 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>GitHub 加速 API 文档</title>
+  <title>GitHub 加速下载</title>
   <style>
-    * { margin: 0; padding: 0; box-sizing: border-box; }
-    body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; background: #0d1117; color: #c9d1d9; line-height: 1.6; }
-    .container { max-width: 900px; margin: 0 auto; padding: 20px; }
-    header { text-align: center; padding: 40px 0; border-bottom: 1px solid #30363d; }
-    h1 { font-size: 2.5em; color: #58a6ff; margin-bottom: 10px; }
-    .subtitle { color: #8b949e; font-size: 1.1em; }
-    .endpoint { background: #161b22; border: 1px solid #30363d; border-radius: 8px; padding: 20px; margin: 20px 0; }
-    .endpoint h3 { color: #58a6ff; margin-bottom: 10px; }
-    .method { display: inline-block; background: #238636; color: #fff; padding: 2px 8px; border-radius: 4px; font-size: 0.8em; margin-right: 8px; }
-    .path { font-family: monospace; color: #f0883e; }
-    .desc { color: #8b949e; margin: 10px 0; }
-    code { background: #1f2937; padding: 2px 6px; border-radius: 4px; font-family: monospace; color: #e06c75; }
-    pre { background: #1f2937; padding: 15px; border-radius: 8px; overflow-x: auto; margin: 10px 0; }
-    pre code { background: none; padding: 0; }
-    .try-btn { background: #238636; color: #fff; border: none; padding: 8px 16px; border-radius: 6px; cursor: pointer; margin-top: 10px; }
-    .try-btn:hover { background: #2ea043; }
-    #result { background: #1f2937; padding: 15px; border-radius: 8px; margin-top: 15px; display: none; white-space: pre-wrap; font-family: monospace; max-height: 400px; overflow-y: auto; }
-    .stats-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 15px; margin: 20px 0; }
-    .stat-card { background: #161b22; border: 1px solid #30363d; padding: 20px; border-radius: 8px; text-align: center; }
-    .stat-num { font-size: 2em; color: #58a6ff; font-weight: bold; }
-    .stat-label { color: #8b949e; font-size: 0.9em; }
-    footer { text-align: center; padding: 40px 0; border-top: 1px solid #30363d; margin-top: 40px; color: #8b949e; }
+    *{margin:0;padding:0;box-sizing:border-box}
+    body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;background:#0d1117;color:#c9d1d9;line-height:1.6;min-height:100vh}
+    .container{max-width:960px;margin:0 auto;padding:20px}
+    header{text-align:center;padding:40px 0}
+    h1{font-size:2.4em;color:#58a6ff;margin-bottom:8px}
+    .subtitle{color:#8b949e;font-size:1.05em}
+
+    .converter{background:#161b22;border:1px solid #30363d;border-radius:12px;padding:30px;margin:30px 0}
+    .converter h2{color:#58a6ff;margin-bottom:15px;font-size:1.3em}
+    .input-group{display:flex;gap:10px;margin-bottom:20px}
+    .input-group input{flex:1;background:#0d1117;border:1px solid #30363d;border-radius:8px;padding:12px 16px;color:#c9d1d9;font-size:14px;outline:none}
+    .input-group input:focus{border-color:#58a6ff}
+    .btn{background:#238636;color:#fff;border:none;padding:12px 24px;border-radius:8px;cursor:pointer;font-size:14px;font-weight:600;white-space:nowrap}
+    .btn:hover{background:#2ea043}
+    .btn:disabled{background:#21262d;cursor:not-allowed}
+
+    .progress-bar{width:100%;height:6px;background:#21262d;border-radius:3px;margin:15px 0;overflow:hidden;display:none}
+    .progress-bar.show{display:block}
+    .progress-fill{height:100%;background:linear-gradient(90deg,#238636,#58a6ff);border-radius:3px;transition:width 0.3s;width:0}
+
+    .status-text{color:#8b949e;font-size:13px;margin-bottom:10px;display:none}
+    .status-text.show{display:block}
+
+    .result{background:#0d1117;border:1px solid #30363d;border-radius:8px;padding:20px;margin-top:15px;display:none}
+    .result.show{display:block}
+    .result-url{background:#161b22;padding:12px;border-radius:6px;word-break:break-all;font-family:monospace;color:#7ee787;margin:10px 0;font-size:13px}
+    .copy-btn{background:#1f6feb;color:#fff;border:none;padding:8px 16px;border-radius:6px;cursor:pointer;font-size:13px;margin-right:8px}
+    .copy-btn:hover{background:#388bfd}
+    .dl-btn{background:#238636;color:#fff;border:none;padding:8px 16px;border-radius:6px;cursor:pointer;font-size:13px}
+    .dl-btn:hover{background:#2ea043}
+
+    .speed-list{margin-top:15px}
+    .speed-item{display:flex;justify-content:space-between;align-items:center;padding:10px 14px;background:#161b22;border-radius:6px;margin:4px 0;font-size:13px;cursor:pointer;transition:background 0.2s}
+    .speed-item:hover{background:#1c2128}
+    .speed-item.best{border:1px solid #238636}
+    .speed-fast{color:#3fb950}
+    .speed-medium{color:#d29922}
+    .speed-slow{color:#f85149}
+    .speed-item .host{flex:1}
+    .speed-item .latency{width:100px;text-align:right}
+    .speed-item .use-btn{background:#1f6feb;color:#fff;border:none;padding:4px 12px;border-radius:4px;cursor:pointer;font-size:12px;margin-left:10px}
+
+    .usage{background:#161b22;border:1px solid #30363d;border-radius:12px;padding:25px;margin:30px 0}
+    .usage h2{color:#58a6ff;margin-bottom:15px}
+    .usage-item{margin:18px 0}
+    .usage-item h4{color:#f0883e;margin-bottom:5px}
+    code{background:#1f2937;padding:2px 6px;border-radius:4px;font-family:monospace;color:#e06c75;font-size:13px}
+    pre{background:#1f2937;padding:12px;border-radius:8px;overflow-x:auto;margin:8px 0}
+    pre code{background:none;padding:0;color:#c9d1d9}
+
+    footer{text-align:center;padding:40px 0;border-top:1px solid #30363d;margin-top:40px;color:#8b949e}
   </style>
 </head>
 <body>
   <div class="container">
     <header>
-      <h1>GitHub Accelerator API</h1>
-      <p class="subtitle">GitHub 加速镜像站聚合 API - 提供全球 GitHub 加速节点查询</p>
+      <h1>GitHub 加速下载</h1>
+      <p class="subtitle">客户端实时测速 · 自动选取最快节点</p>
     </header>
 
-    <div class="stats-grid" id="stats"></div>
+    <div class="converter">
+      <h2>粘贴 GitHub 链接</h2>
+      <div class="input-group">
+        <input type="text" id="ghUrl" placeholder="https://github.com/user/repo/releases/download/v1.0.0/file.zip">
+        <button class="btn" id="convertBtn" onclick="startConvert()">开始加速</button>
+      </div>
 
-    <h2 style="color:#58a6ff; margin:30px 0 15px;">API 端点</h2>
+      <div id="progress" class="progress-bar">
+        <div class="progress-fill" id="progressFill"></div>
+      </div>
+      <div id="statusText" class="status-text"></div>
 
-    <div class="endpoint">
-      <h3><span class="method">GET</span> <span class="path">/api/mirrors</span></h3>
-      <p class="desc">获取所有镜像节点列表</p>
-      <button class="try-btn" onclick="tryApi('/api/mirrors')">试一试</button>
+      <div id="result" class="result">
+        <p style="color:#8b949e;margin-bottom:4px">当前选择：</p>
+        <div class="result-url" id="accelUrl"></div>
+        <div style="display:flex;gap:8px;align-items:center;flex-wrap:wrap">
+          <button class="copy-btn" onclick="copyUrl()">复制加速链接</button>
+          <button class="dl-btn" onclick="downloadFile()">直接下载</button>
+          <span id="speedInfo" style="color:#8b949e;font-size:13px"></span>
+        </div>
+        <div class="speed-list" id="speedList"></div>
+      </div>
     </div>
 
-    <div class="endpoint">
-      <h3><span class="method">GET</span> <span class="path">/api/mirrors/:type</span></h3>
-      <p class="desc">按类型筛选镜像。类型: <code>file-download</code> | <code>direct-access</code> | <code>clone</code> | <code>academic</code></p>
-      <button class="try-btn" onclick="tryApi('/api/mirrors/file-download')">试一试 file-download</button>
+    <div class="usage">
+      <h2>API 接口</h2>
+      <div class="usage-item">
+        <h4>获取全部代理节点</h4>
+        <pre><code>GET /api/proxies</code></pre>
+      </div>
+      <div class="usage-item">
+        <h4>拼接加速链接</h4>
+        <p style="color:#8b949e">在 GitHub 链接前加代理地址：</p>
+        <pre><code>http://43.228.78.104:3000/dl/github.com/{owner}/{repo}/releases/download/{tag}/{file}?mirror=0</code></pre>
+        <p style="color:#8b949e;font-size:12px;margin-top:4px">mirror 参数为节点索引号（从 /api/proxies 获取）</p>
+      </div>
+      <div class="usage-item">
+        <h4>快捷链接</h4>
+        <pre><code>http://43.228.78.104:3000/gh/{owner}/{repo}/releases/download/{tag}/{file}</code></pre>
+      </div>
+      <div class="usage-item">
+        <h4>Raw 文件加速</h4>
+        <pre><code>http://43.228.78.104:3000/raw/{owner}/{repo}/{branch}/{path}</code></pre>
+      </div>
     </div>
-
-    <div class="endpoint">
-      <h3><span class="method">GET</span> <span class="path">/api/random</span></h3>
-      <p class="desc">随机获取一个可用镜像节点</p>
-      <button class="try-btn" onclick="tryApi('/api/random')">试一试</button>
-    </div>
-
-    <div class="endpoint">
-      <h3><span class="method">GET</span> <span class="path">/api/search?q=关键词</span></h3>
-      <p class="desc">搜索镜像节点</p>
-      <button class="try-btn" onclick="tryApi('/api/search?q=ghproxy')">试一试搜索 ghproxy</button>
-    </div>
-
-    <div class="endpoint">
-      <h3><span class="method">GET</span> <span class="path">/api/stats</span></h3>
-      <p class="desc">获取镜像统计信息</p>
-      <button class="try-btn" onclick="tryApi('/api/stats')">试一试</button>
-    </div>
-
-    <h2 style="color:#58a6ff; margin:30px 0 15px;">返回示例</h2>
-    <pre><code>{
-  "success": true,
-  "total": 100,
-  "lastUpdated": "2026-08-27T00:00:00Z",
-  "mirrors": [
-    {
-      "name": "gh-proxy.com",
-      "url": "https://gh-proxy.com/",
-      "type": "file-download",
-      "status": "active",
-      "features": ["Releases", "Raw", "Archive", "Git Clone"]
-    }
-  ]
-}</code></pre>
-
-    <h2 style="color:#58a6ff; margin:30px 0 15px;">自动更新</h2>
-    <p style="color:#8b949e;">运行 <code>npm run update</code> 可从源站自动抓取最新镜像节点并合并到数据库。</p>
-
-    <div id="result"></div>
 
     <footer>
-      <p>GitHub Accelerator API | MIT License</p>
-      <p>数据来源: <a href="https://github.akams.cn/" style="color:#58a6ff">github.akams.cn</a> &amp; <a href="https://www.moretools.app/zh-CN/github-proxy" style="color:#58a6ff">MoreTools</a></p>
+      <p>GitHub Accelerator API | 客户端实时测速 · 自动选择最优节点</p>
     </footer>
   </div>
 
-  <script>
-    async function loadStats() {
-      try {
-        const res = await fetch('/api/stats');
-        const data = await res.json();
-        const el = document.getElementById('stats');
-        el.innerHTML = `
-          <div class="stat-card"><div class="stat-num">${data.stats.total}</div><div class="stat-label">总镜像数</div></div>
-          <div class="stat-card"><div class="stat-num">${data.stats.byType['file-download'] || 0}</div><div class="stat-label">文件加速</div></div>
-          <div class="stat-card"><div class="stat-num">${data.stats.byType['direct-access'] || 0}</div><div class="stat-label">直接访问</div></div>
-          <div class="stat-card"><div class="stat-num">${data.stats.byType['clone'] || 0}</div><div class="stat-label">Clone加速</div></div>
-        `;
-      } catch(e) {}
-    }
+<script>
+let proxies = [];
+let bestIndex = 0;
+let currentUrl = '';
 
-    async function tryApi(url) {
-      const res = await fetch(url);
-      const data = await res.json();
-      const el = document.getElementById('result');
-      el.style.display = 'block';
-      el.textContent = JSON.stringify(data, null, 2);
-    }
+// 页面加载时获取节点列表
+async function loadProxies() {
+  try {
+    const res = await fetch('/api/proxies');
+    const data = await res.json();
+    proxies = data.proxies;
+  } catch(e) { console.error('加载节点失败', e); }
+}
+loadProxies();
 
-    loadStats();
-  </script>
+// 从 GitHub URL 提取路径
+function extractGhPath(url) {
+  url = url.trim();
+  // 去掉域名部分，只保留 github.com/... 或 raw.githubusercontent.com/...
+  const match = url.match(/github\.com\/.+/) || url.match(/raw\.githubusercontent\.com\/.+/);
+  return match ? match[0] : null;
+}
+
+// 客户端测速：用 fetch HEAD 请求测试每个节点
+async function testSpeed(proxyUrl, ghPath, timeout = 5000) {
+  const testUrl = proxyUrl.replace(/\/$/, '') + '/' + ghPath;
+  const start = performance.now();
+  try {
+    const controller = new AbortController();
+    const timer = setTimeout(() => controller.abort(), timeout);
+    const res = await fetch(testUrl, { method: 'HEAD', mode: 'no-cors', signal: controller.signal });
+    clearTimeout(timer);
+    return { proxy: proxyUrl, url: testUrl, latency: Math.round(performance.now() - start), ok: true };
+  } catch(e) {
+    // no-cors 模式下即使 opaque 也算可达
+    const latency = Math.round(performance.now() - start);
+    if (latency < timeout) {
+      return { proxy: proxyUrl, url: testUrl, latency, ok: true };
+    }
+    return { proxy: proxyUrl, url: testUrl, latency: Infinity, ok: false };
+  }
+}
+
+// 并发测速所有节点
+async function testAllProxies(ghPath, onProgress) {
+  const total = proxies.length;
+  let done = 0;
+  const concurrency = 10;
+  const results = [];
+
+  for (let i = 0; i < total; i += concurrency) {
+    const batch = proxies.slice(i, i + concurrency);
+    const batchResults = await Promise.all(batch.map(p => testSpeed(p, ghPath)));
+    results.push(...batchResults);
+    done += batch.length;
+    onProgress(done, total);
+  }
+
+  return results.filter(r => r.ok).sort((a, b) => a.latency - b.latency);
+}
+
+async function startConvert() {
+  const input = document.getElementById('ghUrl').value.trim();
+  if (!input) { alert('请输入 GitHub 链接'); return; }
+
+  const ghPath = extractGhPath(input);
+  if (!ghPath) { alert('无法识别 GitHub 链接，请检查格式'); return; }
+
+  if (proxies.length === 0) {
+    await loadProxies();
+    if (proxies.length === 0) { alert('暂无可用代理节点'); return; }
+  }
+
+  // UI 状态
+  document.getElementById('convertBtn').disabled = true;
+  document.getElementById('progress').className = 'progress-bar show';
+  document.getElementById('progressFill').style.width = '0%';
+  document.getElementById('statusText').className = 'status-text show';
+  document.getElementById('statusText').textContent = `正在测试 ${proxies.length} 个节点...`;
+  document.getElementById('result').className = 'result';
+
+  // 测速
+  const results = await testAllProxies(ghPath, (done, total) => {
+    const pct = Math.round(done / total * 100);
+    document.getElementById('progressFill').style.width = pct + '%';
+    document.getElementById('statusText').textContent = `测速中 ${done}/${total} (${pct}%)`;
+  });
+
+  if (results.length === 0) {
+    document.getElementById('statusText').textContent = '所有节点不可用';
+    document.getElementById('convertBtn').disabled = false;
+    document.getElementById('progress').className = 'progress-bar';
+    return;
+  }
+
+  bestIndex = proxies.indexOf(results[0].proxy);
+  currentUrl = `/dl/${ghPath}?mirror=${bestIndex}`;
+
+  document.getElementById('accelUrl').textContent = location.origin + currentUrl;
+  document.getElementById('speedInfo').textContent = `延迟 ${results[0].latency}ms · 已测试 ${proxies.length} 个节点`;
+
+  // 渲染列表
+  let html = '';
+  results.slice(0, 20).forEach((r, i) => {
+    const host = new URL(r.proxy).hostname;
+    const cls = r.latency < 500 ? 'speed-fast' : r.latency < 2000 ? 'speed-medium' : 'speed-slow';
+    const bestCls = i === 0 ? 'best' : '';
+    html += `<div class="speed-item ${bestCls}" onclick="selectMirror(${proxies.indexOf(r.proxy)}, '${ghPath}')">
+      <span class="host">${i === 0 ? '🏆 ' : ''}${host}</span>
+      <span class="latency ${cls}">${r.latency}ms</span>
+      <button class="use-btn" onclick="event.stopPropagation();selectMirror(${proxies.indexOf(r.proxy)},'${ghPath}')">使用</button>
+    </div>`;
+  });
+  document.getElementById('speedList').innerHTML = html;
+
+  document.getElementById('statusText').textContent = '测速完成';
+  document.getElementById('result').className = 'result show';
+  document.getElementById('convertBtn').disabled = false;
+}
+
+function selectMirror(index, ghPath) {
+  bestIndex = index;
+  currentUrl = `/dl/${ghPath}?mirror=${index}`;
+  document.getElementById('accelUrl').textContent = location.origin + currentUrl;
+}
+
+function copyUrl() {
+  navigator.clipboard.writeText(location.origin + currentUrl).then(() => alert('已复制'));
+}
+
+function downloadFile() {
+  window.open(currentUrl, '_blank');
+}
+
+document.getElementById('ghUrl').addEventListener('keypress', e => {
+  if (e.key === 'Enter') startConvert();
+});
+</script>
 </body>
 </html>
