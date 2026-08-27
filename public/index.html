@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>GitHub 加速 API 文档</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; background: #0d1117; color: #c9d1d9; line-height: 1.6; }
+    .container { max-width: 900px; margin: 0 auto; padding: 20px; }
+    header { text-align: center; padding: 40px 0; border-bottom: 1px solid #30363d; }
+    h1 { font-size: 2.5em; color: #58a6ff; margin-bottom: 10px; }
+    .subtitle { color: #8b949e; font-size: 1.1em; }
+    .endpoint { background: #161b22; border: 1px solid #30363d; border-radius: 8px; padding: 20px; margin: 20px 0; }
+    .endpoint h3 { color: #58a6ff; margin-bottom: 10px; }
+    .method { display: inline-block; background: #238636; color: #fff; padding: 2px 8px; border-radius: 4px; font-size: 0.8em; margin-right: 8px; }
+    .path { font-family: monospace; color: #f0883e; }
+    .desc { color: #8b949e; margin: 10px 0; }
+    code { background: #1f2937; padding: 2px 6px; border-radius: 4px; font-family: monospace; color: #e06c75; }
+    pre { background: #1f2937; padding: 15px; border-radius: 8px; overflow-x: auto; margin: 10px 0; }
+    pre code { background: none; padding: 0; }
+    .try-btn { background: #238636; color: #fff; border: none; padding: 8px 16px; border-radius: 6px; cursor: pointer; margin-top: 10px; }
+    .try-btn:hover { background: #2ea043; }
+    #result { background: #1f2937; padding: 15px; border-radius: 8px; margin-top: 15px; display: none; white-space: pre-wrap; font-family: monospace; max-height: 400px; overflow-y: auto; }
+    .stats-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 15px; margin: 20px 0; }
+    .stat-card { background: #161b22; border: 1px solid #30363d; padding: 20px; border-radius: 8px; text-align: center; }
+    .stat-num { font-size: 2em; color: #58a6ff; font-weight: bold; }
+    .stat-label { color: #8b949e; font-size: 0.9em; }
+    footer { text-align: center; padding: 40px 0; border-top: 1px solid #30363d; margin-top: 40px; color: #8b949e; }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <header>
+      <h1>GitHub Accelerator API</h1>
+      <p class="subtitle">GitHub 加速镜像站聚合 API - 提供全球 GitHub 加速节点查询</p>
+    </header>
+
+    <div class="stats-grid" id="stats"></div>
+
+    <h2 style="color:#58a6ff; margin:30px 0 15px;">API 端点</h2>
+
+    <div class="endpoint">
+      <h3><span class="method">GET</span> <span class="path">/api/mirrors</span></h3>
+      <p class="desc">获取所有镜像节点列表</p>
+      <button class="try-btn" onclick="tryApi('/api/mirrors')">试一试</button>
+    </div>
+
+    <div class="endpoint">
+      <h3><span class="method">GET</span> <span class="path">/api/mirrors/:type</span></h3>
+      <p class="desc">按类型筛选镜像。类型: <code>file-download</code> | <code>direct-access</code> | <code>clone</code> | <code>academic</code></p>
+      <button class="try-btn" onclick="tryApi('/api/mirrors/file-download')">试一试 file-download</button>
+    </div>
+
+    <div class="endpoint">
+      <h3><span class="method">GET</span> <span class="path">/api/random</span></h3>
+      <p class="desc">随机获取一个可用镜像节点</p>
+      <button class="try-btn" onclick="tryApi('/api/random')">试一试</button>
+    </div>
+
+    <div class="endpoint">
+      <h3><span class="method">GET</span> <span class="path">/api/search?q=关键词</span></h3>
+      <p class="desc">搜索镜像节点</p>
+      <button class="try-btn" onclick="tryApi('/api/search?q=ghproxy')">试一试搜索 ghproxy</button>
+    </div>
+
+    <div class="endpoint">
+      <h3><span class="method">GET</span> <span class="path">/api/stats</span></h3>
+      <p class="desc">获取镜像统计信息</p>
+      <button class="try-btn" onclick="tryApi('/api/stats')">试一试</button>
+    </div>
+
+    <h2 style="color:#58a6ff; margin:30px 0 15px;">返回示例</h2>
+    <pre><code>{
+  "success": true,
+  "total": 100,
+  "lastUpdated": "2026-08-27T00:00:00Z",
+  "mirrors": [
+    {
+      "name": "gh-proxy.com",
+      "url": "https://gh-proxy.com/",
+      "type": "file-download",
+      "status": "active",
+      "features": ["Releases", "Raw", "Archive", "Git Clone"]
+    }
+  ]
+}</code></pre>
+
+    <h2 style="color:#58a6ff; margin:30px 0 15px;">自动更新</h2>
+    <p style="color:#8b949e;">运行 <code>npm run update</code> 可从源站自动抓取最新镜像节点并合并到数据库。</p>
+
+    <div id="result"></div>
+
+    <footer>
+      <p>GitHub Accelerator API | MIT License</p>
+      <p>数据来源: <a href="https://github.akams.cn/" style="color:#58a6ff">github.akams.cn</a> &amp; <a href="https://www.moretools.app/zh-CN/github-proxy" style="color:#58a6ff">MoreTools</a></p>
+    </footer>
+  </div>
+
+  <script>
+    async function loadStats() {
+      try {
+        const res = await fetch('/api/stats');
+        const data = await res.json();
+        const el = document.getElementById('stats');
+        el.innerHTML = `
+          <div class="stat-card"><div class="stat-num">${data.stats.total}</div><div class="stat-label">总镜像数</div></div>
+          <div class="stat-card"><div class="stat-num">${data.stats.byType['file-download'] || 0}</div><div class="stat-label">文件加速</div></div>
+          <div class="stat-card"><div class="stat-num">${data.stats.byType['direct-access'] || 0}</div><div class="stat-label">直接访问</div></div>
+          <div class="stat-card"><div class="stat-num">${data.stats.byType['clone'] || 0}</div><div class="stat-label">Clone加速</div></div>
+        `;
+      } catch(e) {}
+    }
+
+    async function tryApi(url) {
+      const res = await fetch(url);
+      const data = await res.json();
+      const el = document.getElementById('result');
+      el.style.display = 'block';
+      el.textContent = JSON.stringify(data, null, 2);
+    }
+
+    loadStats();
+  </script>
+</body>
+</html>
