@@ -1,0 +1,810 @@
+{
+  "lastUpdated": "2026-08-27T00:00:00Z",
+  "mirrors": [
+    {
+      "name": "GitHub Proxy - Akams",
+      "url": "https://github.akams.cn/",
+      "type": "file-download",
+      "status": "active",
+      "features": ["API", "Git Clone", "Releases", "Archive", "Gist", "Raw"]
+    },
+    {
+      "name": "gh-proxy.com",
+      "url": "https://gh-proxy.com/",
+      "type": "file-download",
+      "status": "active",
+      "features": ["Releases", "Raw", "Archive", "Git Clone", "Gist", "API"]
+    },
+    {
+      "name": "ghproxy.net",
+      "url": "https://ghproxy.net/",
+      "type": "file-download",
+      "status": "active",
+      "features": ["Releases", "Raw", "Archive", "Git Clone"]
+    },
+    {
+      "name": "ghfast.top",
+      "url": "https://ghfast.top/",
+      "type": "file-download",
+      "status": "active",
+      "features": ["Releases", "Raw", "Archive", "Git Clone"]
+    },
+    {
+      "name": "GitHub Proxy - Mirror",
+      "url": "https://github-proxy.com/",
+      "type": "file-download",
+      "status": "active",
+      "features": ["Releases", "Raw", "Archive", "Git Clone"]
+    },
+    {
+      "name": "GitMirror",
+      "url": "https://hub.gitmirror.com/",
+      "type": "file-download",
+      "status": "active",
+      "features": ["Releases", "Raw", "Archive", "Git Clone"]
+    },
+    {
+      "name": "ghproxy.cc",
+      "url": "https://ghproxy.cc/",
+      "type": "file-download",
+      "status": "active",
+      "features": ["Releases", "Raw", "Archive"]
+    },
+    {
+      "name": "GitHub CN Xiaobai",
+      "url": "https://github.cnxiaobai.com/",
+      "type": "direct-access",
+      "status": "active",
+      "features": ["Repository", "Issues", "Pull Requests"]
+    },
+    {
+      "name": "bgithub.xyz",
+      "url": "https://bgithub.xyz/",
+      "type": "direct-access",
+      "status": "active",
+      "features": ["Repository", "Issues", "Pull Requests"]
+    },
+    {
+      "name": "kkgithub.com",
+      "url": "https://kkgithub.com/",
+      "type": "direct-access",
+      "status": "active",
+      "features": ["Repository", "Issues", "Pull Requests"]
+    },
+    {
+      "name": "gitclone.com",
+      "url": "https://gitclone.com/",
+      "type": "clone",
+      "status": "active",
+      "features": ["Git Clone"]
+    },
+    {
+      "name": "github.ur1.fun",
+      "url": "https://github.ur1.fun/",
+      "type": "direct-access",
+      "status": "active",
+      "features": ["Repository", "Issues", "Pull Requests"]
+    },
+    {
+      "name": "5555.cab",
+      "url": "https://www.5555.cab/",
+      "type": "file-download",
+      "status": "active",
+      "features": ["Releases", "Raw", "Archive"]
+    },
+    {
+      "name": "ghproxy.xiaopa.cc",
+      "url": "https://ghproxy.xiaopa.cc/",
+      "type": "file-download",
+      "status": "active",
+      "features": ["Releases", "Raw", "Archive"]
+    },
+    {
+      "name": "ghproxy.cfd",
+      "url": "https://ghproxy.cfd/",
+      "type": "file-download",
+      "status": "active",
+      "features": ["Releases", "Raw", "Archive"]
+    },
+    {
+      "name": "ghproxy.monkeyray.net",
+      "url": "https://ghproxy.monkeyray.net/",
+      "type": "file-download",
+      "status": "active",
+      "features": ["Releases", "Raw", "Archive"]
+    },
+    {
+      "name": "cf.ghproxy.cc",
+      "url": "https://cf.ghproxy.cc/",
+      "type": "file-download",
+      "status": "active",
+      "features": ["Releases", "Raw", "Archive"]
+    },
+    {
+      "name": "gitproxy.mrhjx.cn",
+      "url": "https://gitproxy.mrhjx.cn/",
+      "type": "file-download",
+      "status": "active",
+      "features": ["Releases", "Raw", "Archive"]
+    },
+    {
+      "name": "gh.xxooo.cf",
+      "url": "https://gh.xxooo.cf/",
+      "type": "file-download",
+      "status": "active",
+      "features": ["Releases", "Raw", "Archive"]
+    },
+    {
+      "name": "github.xxlab.tech",
+      "url": "https://github.xxlab.tech/",
+      "type": "file-download",
+      "status": "active",
+      "features": ["Releases", "Raw", "Archive"]
+    },
+    {
+      "name": "ghproxy.1888866.xyz",
+      "url": "https://ghproxy.1888866.xyz/",
+      "type": "file-download",
+      "status": "active",
+      "features": ["Releases", "Raw", "Archive"]
+    },
+    {
+      "name": "github.mlmle.cn",
+      "url": "https://github.mlmle.cn/",
+      "type": "file-download",
+      "status": "active",
+      "features": ["Releases", "Raw", "Archive"]
+    },
+    {
+      "name": "fastgit.cc",
+      "url": "https://fastgit.cc/",
+      "type": "file-download",
+      "status": "active",
+      "features": ["Releases", "Raw", "Archive"]
+    },
+    {
+      "name": "gh.1k.ink",
+      "url": "https://gh.1k.ink/",
+      "type": "file-download",
+      "status": "active",
+      "features": ["Releases", "Raw", "Archive"]
+    },
+    {
+      "name": "github.boringhex.top",
+      "url": "https://github.boringhex.top/",
+      "type": "file-download",
+      "status": "active",
+      "features": ["Releases", "Raw", "Archive"]
+    },
+    {
+      "name": "gh.jdck.fun",
+      "url": "https://gh.jdck.fun/",
+      "type": "file-download",
+      "status": "active",
+      "features": ["Releases", "Raw", "Archive"]
+    },
+    {
+      "name": "gh.monlor.com",
+      "url": "https://gh.monlor.com/",
+      "type": "file-download",
+      "status": "active",
+      "features": ["Releases", "Raw", "Archive"]
+    },
+    {
+      "name": "g.blfrp.cn",
+      "url": "https://g.blfrp.cn/",
+      "type": "file-download",
+      "status": "active",
+      "features": ["Releases", "Raw", "Archive"]
+    },
+    {
+      "name": "gh.con.sh",
+      "url": "https://gh.con.sh/",
+      "type": "file-download",
+      "status": "active",
+      "features": ["Releases", "Raw", "Archive"]
+    },
+    {
+      "name": "gh.b52m.cn",
+      "url": "https://gh.b52m.cn/",
+      "type": "file-download",
+      "status": "active",
+      "features": ["Releases", "Raw", "Archive"]
+    },
+    {
+      "name": "github.dpik.top",
+      "url": "https://github.dpik.top/",
+      "type": "file-download",
+      "status": "active",
+      "features": ["Releases", "Raw", "Archive"]
+    },
+    {
+      "name": "github.geekery.cn",
+      "url": "https://github.geekery.cn/",
+      "type": "file-download",
+      "status": "active",
+      "features": ["Releases", "Raw", "Archive"]
+    },
+    {
+      "name": "gh.halonice.com",
+      "url": "https://gh.halonice.com/",
+      "type": "file-download",
+      "status": "active",
+      "features": ["Releases", "Raw", "Archive"]
+    },
+    {
+      "name": "github.limoruirui.com",
+      "url": "https://github.limoruirui.com/",
+      "type": "file-download",
+      "status": "active",
+      "features": ["Releases", "Raw", "Archive"]
+    },
+    {
+      "name": "git.yylx.win",
+      "url": "https://git.yylx.win/",
+      "type": "file-download",
+      "status": "active",
+      "features": ["Releases", "Raw", "Archive"]
+    },
+    {
+      "name": "github.tbedu.top",
+      "url": "https://github.tbedu.top/",
+      "type": "file-download",
+      "status": "active",
+      "features": ["Releases", "Raw", "Archive"]
+    },
+    {
+      "name": "ghproxy.vansour.top",
+      "url": "https://ghproxy.vansour.top/",
+      "type": "file-download",
+      "status": "active",
+      "features": ["Releases", "Raw", "Archive"]
+    },
+    {
+      "name": "tvv.tw",
+      "url": "https://tvv.tw/",
+      "type": "file-download",
+      "status": "active",
+      "features": ["Releases", "Raw", "Archive"]
+    },
+    {
+      "name": "ghproxy.xzhouqd.com",
+      "url": "https://ghproxy.xzhouqd.com/",
+      "type": "file-download",
+      "status": "active",
+      "features": ["Releases", "Raw", "Archive"]
+    },
+    {
+      "name": "github-proxy.memory-echoes.cn",
+      "url": "https://github-proxy.memory-echoes.cn/",
+      "type": "file-download",
+      "status": "active",
+      "features": ["Releases", "Raw", "Archive"]
+    },
+    {
+      "name": "gh.catmak.name",
+      "url": "https://gh.catmak.name/",
+      "type": "file-download",
+      "status": "active",
+      "features": ["Releases", "Raw", "Archive"]
+    },
+    {
+      "name": "hub.ddayh.com",
+      "url": "https://hub.ddayh.com/",
+      "type": "file-download",
+      "status": "active",
+      "features": ["Releases", "Raw", "Archive"]
+    },
+    {
+      "name": "github.ruojian.space",
+      "url": "https://github.ruojian.space/",
+      "type": "file-download",
+      "status": "active",
+      "features": ["Releases", "Raw", "Archive"]
+    },
+    {
+      "name": "ghproxy.cxkpro.top",
+      "url": "https://ghproxy.cxkpro.top/",
+      "type": "file-download",
+      "status": "active",
+      "features": ["Releases", "Raw", "Archive"]
+    },
+    {
+      "name": "ghp.keleyaa.com",
+      "url": "https://ghp.keleyaa.com/",
+      "type": "file-download",
+      "status": "active",
+      "features": ["Releases", "Raw", "Archive"]
+    },
+    {
+      "name": "github-proxy.lixxing.top",
+      "url": "https://github-proxy.lixxing.top/",
+      "type": "file-download",
+      "status": "active",
+      "features": ["Releases", "Raw", "Archive"]
+    },
+    {
+      "name": "gh.padao.fun",
+      "url": "https://gh.padao.fun/",
+      "type": "file-download",
+      "status": "active",
+      "features": ["Releases", "Raw", "Archive"]
+    },
+    {
+      "name": "gp.871201.xyz",
+      "url": "https://gp.871201.xyz/",
+      "type": "file-download",
+      "status": "active",
+      "features": ["Releases", "Raw", "Archive"]
+    },
+    {
+      "name": "gh.wsmdn.dpdns.org",
+      "url": "https://gh.wsmdn.dpdns.org/",
+      "type": "file-download",
+      "status": "active",
+      "features": ["Releases", "Raw", "Archive"]
+    },
+    {
+      "name": "gh-proxy.net",
+      "url": "https://gh-proxy.net/",
+      "type": "file-download",
+      "status": "active",
+      "features": ["Releases", "Raw", "Archive"]
+    },
+    {
+      "name": "gh.dpik.top",
+      "url": "https://gh.dpik.top/",
+      "type": "file-download",
+      "status": "active",
+      "features": ["Releases", "Raw", "Archive"]
+    },
+    {
+      "name": "gp.zkitefly.eu.org",
+      "url": "https://gp.zkitefly.eu.org/",
+      "type": "file-download",
+      "status": "active",
+      "features": ["Releases", "Raw", "Archive"]
+    },
+    {
+      "name": "gh.bugdey.us.kg",
+      "url": "https://gh.bugdey.us.kg/",
+      "type": "file-download",
+      "status": "active",
+      "features": ["Releases", "Raw", "Archive"]
+    },
+    {
+      "name": "code-hub-hk.freexy.top",
+      "url": "https://code-hub-hk.freexy.top/",
+      "type": "file-download",
+      "status": "active",
+      "features": ["Releases", "Raw", "Archive"]
+    },
+    {
+      "name": "github.chenc.dev",
+      "url": "https://github.chenc.dev/",
+      "type": "file-download",
+      "status": "active",
+      "features": ["Releases", "Raw", "Archive"]
+    },
+    {
+      "name": "ghfile.geekertao.top",
+      "url": "https://ghfile.geekertao.top/",
+      "type": "file-download",
+      "status": "active",
+      "features": ["Releases", "Raw", "Archive"]
+    },
+    {
+      "name": "kenyu.ggff.net",
+      "url": "https://kenyu.ggff.net/",
+      "type": "file-download",
+      "status": "active",
+      "features": ["Releases", "Raw", "Archive"]
+    },
+    {
+      "name": "gh.nxnow.top",
+      "url": "https://gh.nxnow.top/",
+      "type": "file-download",
+      "status": "active",
+      "features": ["Releases", "Raw", "Archive"]
+    },
+    {
+      "name": "github.bullb.net",
+      "url": "https://github.bullb.net/",
+      "type": "file-download",
+      "status": "active",
+      "features": ["Releases", "Raw", "Archive"]
+    },
+    {
+      "name": "gitproxy.197545.xyz",
+      "url": "https://gitproxy.197545.xyz/",
+      "type": "file-download",
+      "status": "active",
+      "features": ["Releases", "Raw", "Archive"]
+    },
+    {
+      "name": "gitproxy.127731.xyz",
+      "url": "https://gitproxy.127731.xyz/",
+      "type": "file-download",
+      "status": "active",
+      "features": ["Releases", "Raw", "Archive"]
+    },
+    {
+      "name": "gitproxy1.127731.xyz",
+      "url": "https://gitproxy1.127731.xyz/",
+      "type": "file-download",
+      "status": "active",
+      "features": ["Releases", "Raw", "Archive"]
+    },
+    {
+      "name": "jiashu.1win.eu.org",
+      "url": "https://jiashu.1win.eu.org/",
+      "type": "file-download",
+      "status": "active",
+      "features": ["Releases", "Raw", "Archive"]
+    },
+    {
+      "name": "ghproxy.mf-dust.dpdns.org",
+      "url": "https://ghproxy.mf-dust.dpdns.org/",
+      "type": "file-download",
+      "status": "active",
+      "features": ["Releases", "Raw", "Archive"]
+    },
+    {
+      "name": "j.1lin.dpdns.org",
+      "url": "https://j.1lin.dpdns.org/",
+      "type": "file-download",
+      "status": "active",
+      "features": ["Releases", "Raw", "Archive"]
+    },
+    {
+      "name": "gh.jasonzeng.dev",
+      "url": "https://gh.jasonzeng.dev/",
+      "type": "file-download",
+      "status": "active",
+      "features": ["Releases", "Raw", "Archive"]
+    },
+    {
+      "name": "proxy.baguoyuyan.com",
+      "url": "https://proxy.baguoyuyan.com/",
+      "type": "file-download",
+      "status": "active",
+      "features": ["Releases", "Raw", "Archive"]
+    },
+    {
+      "name": "github.1ms.xx.kg",
+      "url": "https://github.1ms.xx.kg/",
+      "type": "file-download",
+      "status": "active",
+      "features": ["Releases", "Raw", "Archive"]
+    },
+    {
+      "name": "gh.198962.xyz",
+      "url": "https://gh.198962.xyz/",
+      "type": "file-download",
+      "status": "active",
+      "features": ["Releases", "Raw", "Archive"]
+    },
+    {
+      "name": "github.880824.xyz",
+      "url": "https://github.880824.xyz/",
+      "type": "file-download",
+      "status": "active",
+      "features": ["Releases", "Raw", "Archive"]
+    },
+    {
+      "name": "ghps.cc",
+      "url": "https://ghps.cc/",
+      "type": "file-download",
+      "status": "active",
+      "features": ["Releases", "Raw", "Archive"]
+    },
+    {
+      "name": "30006000.xyz",
+      "url": "https://30006000.xyz/",
+      "type": "file-download",
+      "status": "active",
+      "features": ["Releases", "Raw", "Archive"]
+    },
+    {
+      "name": "github.tianrld.top",
+      "url": "https://github.tianrld.top/",
+      "type": "file-download",
+      "status": "active",
+      "features": ["Releases", "Raw", "Archive"]
+    },
+    {
+      "name": "getgit.love8yun.eu.org",
+      "url": "https://getgit.love8yun.eu.org/",
+      "type": "file-download",
+      "status": "active",
+      "features": ["Releases", "Raw", "Archive"]
+    },
+    {
+      "name": "github.788787.xyz",
+      "url": "https://github.788787.xyz/",
+      "type": "file-download",
+      "status": "active",
+      "features": ["Releases", "Raw", "Archive"]
+    },
+    {
+      "name": "ghm.078465.xyz",
+      "url": "https://ghm.078465.xyz/",
+      "type": "file-download",
+      "status": "active",
+      "features": ["Releases", "Raw", "Archive"]
+    },
+    {
+      "name": "proxy.yaoyaoling.net",
+      "url": "https://proxy.yaoyaoling.net/",
+      "type": "file-download",
+      "status": "active",
+      "features": ["Releases", "Raw", "Archive"]
+    },
+    {
+      "name": "ghproxy.sakuramoe.dev",
+      "url": "https://ghproxy.sakuramoe.dev/",
+      "type": "file-download",
+      "status": "active",
+      "features": ["Releases", "Raw", "Archive"]
+    },
+    {
+      "name": "ghproxy.053000.xyz",
+      "url": "https://ghproxy.053000.xyz/",
+      "type": "file-download",
+      "status": "active",
+      "features": ["Releases", "Raw", "Archive"]
+    },
+    {
+      "name": "gh.chjina.com",
+      "url": "https://gh.chjina.com/",
+      "type": "file-download",
+      "status": "active",
+      "features": ["Releases", "Raw", "Archive"]
+    },
+    {
+      "name": "git.zeas.cc",
+      "url": "https://git.zeas.cc/",
+      "type": "file-download",
+      "status": "active",
+      "features": ["Releases", "Raw", "Archive"]
+    },
+    {
+      "name": "ghpxy.hwinzniej.top",
+      "url": "https://ghpxy.hwinzniej.top/",
+      "type": "file-download",
+      "status": "active",
+      "features": ["Releases", "Raw", "Archive"]
+    },
+    {
+      "name": "gh.echofree.xyz",
+      "url": "https://gh.echofree.xyz/",
+      "type": "file-download",
+      "status": "active",
+      "features": ["Releases", "Raw", "Archive"]
+    },
+    {
+      "name": "github.zzrbk.xyz",
+      "url": "https://github.zzrbk.xyz/",
+      "type": "file-download",
+      "status": "active",
+      "features": ["Releases", "Raw", "Archive"]
+    },
+    {
+      "name": "git.669966.xyz",
+      "url": "https://git.669966.xyz/",
+      "type": "file-download",
+      "status": "active",
+      "features": ["Releases", "Raw", "Archive"]
+    },
+    {
+      "name": "github.ihnic.com",
+      "url": "https://github.ihnic.com/",
+      "type": "file-download",
+      "status": "active",
+      "features": ["Releases", "Raw", "Archive"]
+    },
+    {
+      "name": "gh.996986.xyz",
+      "url": "https://gh.996986.xyz/",
+      "type": "file-download",
+      "status": "active",
+      "features": ["Releases", "Raw", "Archive"]
+    },
+    {
+      "name": "gh.idayer.com",
+      "url": "https://gh.idayer.com/",
+      "type": "file-download",
+      "status": "active",
+      "features": ["Releases", "Raw", "Archive"]
+    },
+    {
+      "name": "github.ednovas.xyz",
+      "url": "https://github.ednovas.xyz/",
+      "type": "file-download",
+      "status": "active",
+      "features": ["Releases", "Raw", "Archive"]
+    },
+    {
+      "name": "gh.chalin.tk",
+      "url": "https://gh.chalin.tk/",
+      "type": "file-download",
+      "status": "active",
+      "features": ["Releases", "Raw", "Archive"]
+    },
+    {
+      "name": "j.1win.ggff.net",
+      "url": "https://j.1win.ggff.net/",
+      "type": "file-download",
+      "status": "active",
+      "features": ["Releases", "Raw", "Archive"]
+    },
+    {
+      "name": "github.lsdfxdk.nyc.mn",
+      "url": "https://github.lsdfxdk.nyc.mn/",
+      "type": "file-download",
+      "status": "active",
+      "features": ["Releases", "Raw", "Archive"]
+    },
+    {
+      "name": "gh.aaa.team",
+      "url": "https://gh.aaa.team/",
+      "type": "file-download",
+      "status": "active",
+      "features": ["Releases", "Raw", "Archive"]
+    },
+    {
+      "name": "github.crdz.eu.org",
+      "url": "https://github.crdz.eu.org/",
+      "type": "file-download",
+      "status": "active",
+      "features": ["Releases", "Raw", "Archive"]
+    },
+    {
+      "name": "gh.shiina-rimo.cafe",
+      "url": "https://gh.shiina-rimo.cafe/",
+      "type": "file-download",
+      "status": "active",
+      "features": ["Releases", "Raw", "Archive"]
+    },
+    {
+      "name": "ghproxy.mirror.skybyte.me",
+      "url": "https://ghproxy.mirror.skybyte.me/",
+      "type": "file-download",
+      "status": "active",
+      "features": ["Releases", "Raw", "Archive"]
+    },
+    {
+      "name": "gh.llkk.cc",
+      "url": "https://gh.llkk.cc/",
+      "type": "file-download",
+      "status": "active",
+      "features": ["Releases", "Raw", "Archive"]
+    },
+    {
+      "name": "git.40609891.xyz",
+      "url": "https://git.40609891.xyz/",
+      "type": "file-download",
+      "status": "active",
+      "features": ["Releases", "Raw", "Archive"]
+    },
+    {
+      "name": "github.oterea.top",
+      "url": "https://github.oterea.top/",
+      "type": "file-download",
+      "status": "active",
+      "features": ["Releases", "Raw", "Archive"]
+    },
+    {
+      "name": "gh.noki.icu",
+      "url": "https://gh.noki.icu/",
+      "type": "file-download",
+      "status": "active",
+      "features": ["Releases", "Raw", "Archive"]
+    },
+    {
+      "name": "gh.39.al",
+      "url": "https://gh.39.al/",
+      "type": "file-download",
+      "status": "active",
+      "features": ["Releases", "Raw", "Archive"]
+    },
+    {
+      "name": "ghproxy.cn",
+      "url": "https://ghproxy.cn/",
+      "type": "file-download",
+      "status": "active",
+      "features": ["Releases", "Raw", "Archive"]
+    },
+    {
+      "name": "down.npee.cn",
+      "url": "https://down.npee.cn/",
+      "type": "file-download",
+      "status": "active",
+      "features": ["Releases", "Raw", "Archive"]
+    },
+    {
+      "name": "github.kkproxy.dpdns.org",
+      "url": "https://github.kkproxy.dpdns.org/",
+      "type": "file-download",
+      "status": "active",
+      "features": ["Releases", "Raw", "Archive"]
+    },
+    {
+      "name": "free.cn.eu.org",
+      "url": "https://free.cn.eu.org/",
+      "type": "file-download",
+      "status": "active",
+      "features": ["Releases", "Raw", "Archive"]
+    },
+    {
+      "name": "git.951959483.xyz",
+      "url": "https://git.951959483.xyz/",
+      "type": "file-download",
+      "status": "active",
+      "features": ["Releases", "Raw", "Archive"]
+    },
+    {
+      "name": "git.820828.xyz",
+      "url": "https://git.820828.xyz/",
+      "type": "file-download",
+      "status": "active",
+      "features": ["Releases", "Raw", "Archive"]
+    },
+    {
+      "name": "ghproxy.fangkuai.fun",
+      "url": "https://ghproxy.fangkuai.fun/",
+      "type": "file-download",
+      "status": "active",
+      "features": ["Releases", "Raw", "Archive"]
+    },
+    {
+      "name": "github.cn86.dev",
+      "url": "https://github.cn86.dev/",
+      "type": "file-download",
+      "status": "active",
+      "features": ["Releases", "Raw", "Archive"]
+    },
+    {
+      "name": "github.zjzzy.cloudns.org",
+      "url": "https://github.zjzzy.cloudns.org/",
+      "type": "file-download",
+      "status": "active",
+      "features": ["Releases", "Raw", "Archive"]
+    },
+    {
+      "name": "ghb.nilive.top",
+      "url": "https://ghb.nilive.top/",
+      "type": "file-download",
+      "status": "active",
+      "features": ["Releases", "Raw", "Archive"]
+    },
+    {
+      "name": "gitproxy.click",
+      "url": "https://gitproxy.click/",
+      "type": "file-download",
+      "status": "active",
+      "features": ["Releases", "Raw", "Archive"]
+    },
+    {
+      "name": "proxy.atoposs.com",
+      "url": "https://proxy.atoposs.com/",
+      "type": "file-download",
+      "status": "active",
+      "features": ["Releases", "Raw", "Archive"]
+    },
+    {
+      "name": "gh-proxy.com",
+      "url": "https://gh-proxy.com/",
+      "type": "file-download",
+      "status": "active",
+      "features": ["Releases", "Raw", "Archive"]
+    },
+    {
+      "name": "tuna.tsinghua.edu.cn",
+      "url": "https://mirrors.tuna.tsinghua.edu.cn/github-release/",
+      "type": "academic",
+      "status": "active",
+      "features": ["Releases"]
+    }
+  ]
+}
